@@ -7,7 +7,11 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #f0f0f0; /* Colore di sfondo pastello */
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
     }
 
     .container {
@@ -16,18 +20,25 @@
 
     .counter {
       font-size: 3em;
+      color: #ff6f61;
+      border-radius: 50%;
+      padding: 30px;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .btn {
       margin-top: 20px;
-      background-color: #ffb3ba; /* Colore di sfondo pastello per il pulsante */
-      border-color: #ffb3ba; /* Colore del bordo pastello per il pulsante */
-      color: #333; /* Colore del testo per il pulsante */
+      background-color: #ff6f61;
+      border-color: #ff6f61;
+      color: #fff;
+      border-radius: 25px;
+      transition: background-color 0.3s;
     }
 
     .btn:hover {
-      background-color: #ffdfba; /* Colore di sfondo pastello al passaggio del mouse */
-      border-color: #ffdfba; /* Colore del bordo pastello al passaggio del mouse */
+      background-color: #f64148;
+      border-color: #f64148;
     }
 
     .hidden-div {
@@ -35,21 +46,38 @@
     }
 
     .navbar {
-      background-color: #bde0fe !important; /* Colore di sfondo pastello per la navbar */
+      background-color: #ffd166;
+      border-bottom: 3px solid #fcbf49;
+      padding: 20px 0;
     }
 
     .navbar-brand,
     .navbar-nav .nav-link {
-      color: #333 !important; /* Colore del testo per il link nella navbar */
+      color: #333;
+      transition: color 0.3s;
     }
 
-    .navbar-toggler-icon {
-      background-color: #333; /* Colore dell'icona del toggler */
+    .navbar-brand:hover,
+    .navbar-nav .nav-link:hover {
+      color: #222;
+    }
+
+    .section-title {
+      border-bottom: 2px solid #ff6f61;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    .section-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="#">Contatore di Marius</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,10 +107,10 @@
   </nav>
 
   <div class="container">
-    <div class="row">
-      <div class="col text-center">
-        <h1>Contatore del Rizz di Marius</h1>
-        <p class="counter">21</p>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 text-center">
+        <h1 class="section-title">Contatore del Rizz di Marius</h1>
+        <p class="counter" id="counterDisplay">21</p>
         <button class="btn btn-primary" id="incrementBtn">Incrementa</button>
       </div>
     </div>
@@ -91,9 +119,11 @@
   <div id="informazioni" class="container mt-5 hidden-div">
     <div class="row">
       <div class="col">
-        <h2>Informazioni</h2>
-        <p>Benvenuti nel Contatore del Rizz di Marius! Questo contatore è stato creato per tenere traccia del numero di volte che Marius ha pronunciato la parola "Rizz" durante le sue trasmissioni in diretta. Marius è un carismatico streamer con una passione per i giochi e un linguaggio colorito, il che rende il suo "Rizz" un elemento iconico delle sue trasmissioni.</p>
-        <p>Il contatore è stato avviato a 21 per rappresentare il numero iniziale di "Rizz" e può essere incrementato cliccando sul pulsante "Incrementa". Esplora anche le altre sezioni del sito, inclusa la sezione "Curiosità", per scoprire informazioni divertenti e interessanti riguardanti il mondo di Marius e del Rizz.</p>
+        <h2 class="section-title">Informazioni</h2>
+        <div class="section-content">
+          <p>Benvenuti nel Contatore del Rizz di Marius! Questo contatore è stato creato per tenere traccia del numero di volte che Marius ha pronunciato la parola "Rizz" durante le sue trasmissioni in diretta. Marius è un carismatico streamer con una passione per i giochi e un linguaggio colorito, il che rende il suo "Rizz" un elemento iconico delle sue trasmissioni.</p>
+          <p>Il contatore è stato avviato a 21 per rappresentare il numero iniziale di "Rizz" e può essere incrementato cliccando sul pulsante "Incrementa". Esplora anche le altre sezioni del sito, inclusa la sezione "Curiosità", per scoprire informazioni divertenti e interessanti riguardanti il mondo di Marius e del Rizz.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -101,8 +131,10 @@
   <div id="curiosita" class="container mt-5 hidden-div">
     <div class="row">
       <div class="col">
-        <h2>Curiosità</h2>
-        <p>Una curiosità affascinante sul contatore del Rizz di Marius è che, nonostante sia stato progettato per conteggiare solo il Rizz di Marius, è diventato un simbolo di unità e condivisione nella comunità online. Numerose persone lo utilizzano per tracciare gli eventi salienti delle loro vite quotidiane, creando così un legame unico tra gli utenti di tutto il mondo.</p>
+        <h2 class="section-title">Curiosità</h2>
+        <div class="section-content">
+          <p>Una curiosità affascinante sul contatore del Rizz di Marius è che, nonostante sia stato progettato per conteggiare solo il Rizz di Marius, è diventato un simbolo di unità e condivisione nella comunità online. Numerose persone lo utilizzano per tracciare gli eventi salienti delle loro vite quotidiane, creando così un legame unico tra gli utenti di tutto il mondo.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -110,26 +142,21 @@
   <div id="altro" class="container mt-5 hidden-div">
     <div class="row">
       <div class="col">
-        <h2>Altro</h2>
-        <p>Questa sezione è dedicata a tutto ciò che riguarda il mondo di Marius al di là del suo "Rizz". Marius è noto non solo per le sue esclamazioni caratteristiche, ma anche per la sua passione per la pizza e le avventure culinarie durante le sue trasmissioni. Nel corso degli anni, ha condiviso ricette, esperienze culinarie e aneddoti divertenti sui suoi stream.</p>
-        <p>In questa sezione, puoi trovare consigli su come creare la perfetta pizza fatta in casa, storie di Marius mentre esplora nuovi ristoranti o cucina in diretta per i suoi spettatori, e molto altro ancora. Esplora e scopri il lato culinario e divertente di Marius che va oltre il suo celebre "Rizz".</p>
-      </div>
-    </div>
-  </div>
-
-  <div id="statistiche" class="container mt-5 hidden-div">
-    <div class="row">
-      <div class="col">
-        <h2>Statistiche</h2>
-        <canvas id="myChart"></canvas>
+        <h2 class="section-title">Altro</h2>
+        <div class="section-content">
+          <p>Questa sezione è dedicata a tutto ciò che riguarda il mondo di Marius al di là del suo "Rizz". Marius è noto non solo per le sue esclamazioni caratteristiche, ma anche per la sua passione per la pizza e le avventure culinarie durante le sue trasmissioni. Nel corso degli anni, ha condiviso ricette, esperienze culinarie e aneddoti divertenti sui suoi stream.</p>
+          <p>In questa sezione, puoi trovare consigli su come creare la perfetta pizza fatta in casa, storie di Marius mentre esplora nuovi ristoranti o cucina in diretta per i suoi spettatori, e molto altro ancora. Esplora e scopri il lato culinario e divertente di Marius che va oltre il suo celebre "Rizz".</p>
+        </div>
       </div>
     </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
   <script>
     $(document).ready(function() {
+      var count = localStorage.getItem("counter") ? parseInt(localStorage.getItem("counter")) : 21; // Inizializza il contatore da 21 o da localStorage se presente
+      $("#counterDisplay").text(count); // Mostra il valore del contatore
+
       $("#informazioniLink").click(function(e) {
         e.preventDefault();
         $("#informazioni").slideToggle();
@@ -145,38 +172,10 @@
         $("#altro").slideToggle();
       });
 
-      $("#statisticheLink").click(function(e) {
-        e.preventDefault();
-        $("#statistiche").slideToggle();
-        // Genera un esempio di grafico a linee
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno'],
-            datasets: [{
-              label: 'Numero di Rizz',
-              data: [21, 30, 35, 40, 45, 50], // Esempio di dati per il numero di "Rizz" pronunciati nel tempo
-              fill: false,
-              borderColor: 'rgb(75, 192, 192)',
-              tension: 0.1
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-        });
-      });
-
-      var count = 21; // Inizio il contatore da 21
-
       $("#incrementBtn").click(function() {
         count++;
-        $(".counter").text(count);
+        $("#counterDisplay").text(count); // Aggiorna il valore del contatore visualizzato
+        localStorage.setItem("counter", count); // Imposta il valore del contatore in localStorage
       });
     });
   </script>
