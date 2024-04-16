@@ -73,35 +73,35 @@
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
+
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">Contatore di Marius</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Contatore di Marius</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="informazioniLink">Informazioni</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="curiositaLink">Curiosità</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="altroLink">Altro</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="statisticheLink">Statistiche</a>
-          </li>
-        </ul>
-      </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="informazioniLink">Informazioni</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="curiositaLink">Curiosità</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="altroLink">Altro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="statisticheLink">Statistiche</a>
+        </li>
+      </ul>
     </div>
   </nav>
 
@@ -150,9 +150,19 @@
     </div>
   </div>
 
+  <div id="statistiche" class="container mt-5 hidden-div">
+    <div class="row">
+      <div class="col">
+        <h2 class="section-title">Statistiche</h2>
+        <div class="section-content">
+          <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
   <script>
     $(document).ready(function() {
       var count = localStorage.getItem("counter") ? parseInt(localStorage.getItem("counter")) : 21; // Inizializza il contatore da 21 o da localStorage se presente
@@ -171,6 +181,39 @@
       $("#altroLink").click(function(e) {
         e.preventDefault();
         $("#altro").slideToggle();
+      });
+
+      $("#statisticheLink").click(function(e) {
+        e.preventDefault();
+        $("#statistiche").slideToggle();
+        // Aggiungi qui il codice per generare il grafico
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Rizz', 'Altro'],
+            datasets: [{
+              label: '# di volte',
+              data: [count, 100 - count],
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)'
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)'
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
       });
 
       $("#incrementBtn").click(function() {
