@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var count = localStorage.getItem("counter") ? parseInt(localStorage.getItem("counter")) : 21; // Inizializza il contatore da 21 o da localStorage se presente
+  var count = 21; // Inizializza il contatore a 21
+
   var counterDisplay = document.getElementById('counterDisplay');
-  var incrementBtn = document.getElementById('incrementBtn');
   var informazioniLink = document.getElementById('informazioniLink');
   var curiositaLink = document.getElementById('curiositaLink');
   var altroLink = document.getElementById('altroLink');
@@ -12,12 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var statisticheSection = document.getElementById('statistiche');
 
   counterDisplay.textContent = count;
-
-  incrementBtn.addEventListener('click', function() {
-    count++;
-    counterDisplay.textContent = count;
-    localStorage.setItem("counter", count);
-  });
 
   informazioniLink.addEventListener('click', function(e) {
     e.preventDefault();
