@@ -11,6 +11,12 @@
 	color: #333;
   }
   
+  .counter-text {
+	font-size: 25px; /* Adjust the font size as needed */
+	color: black; /* Adjust the color as needed */
+	margin-top: 15px; /* Adjust the margin top as needed */
+  }
+
   .container {
 	max-width: 1200px;
 	margin: 0 auto;
