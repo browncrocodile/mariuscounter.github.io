@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var count = 21; // Inizializza il contatore a 21
+  var count = 23; // Inizializza il contatore a 21
 
   var counterDisplay = document.getElementById('counterDisplay');
   var informazioniLink = document.getElementById('informazioniLink');
